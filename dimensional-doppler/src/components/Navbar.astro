@@ -1,0 +1,74 @@
+---
+const links = [
+  { label: 'Inicio', href: '#' },
+  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Sobre mí', href: '#sobre-mi' },
+];
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-lg font-bold tracking-tight text-zinc-100">
+      Francisco<span class="text-indigo-400">.</span>
+    </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button
+      id="menu-toggle"
+      class="flex flex-col gap-1.5 md:hidden"
+      aria-label="Abrir menú"
+    >
+      <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar1"></span>
+      <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar2"></span>
+      <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar3"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-zinc-800/50 md:hidden">
+    <ul class="flex flex-col gap-1 px-6 py-4">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block py-2 text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    bar1.classList.toggle('rotate-45');
+    bar1.classList.toggle('translate-y-2');
+    bar2.classList.toggle('opacity-0');
+    bar3.classList.toggle('-rotate-45');
+    bar3.classList.toggle('-translate-y-2');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>
