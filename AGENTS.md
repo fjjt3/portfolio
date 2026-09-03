@@ -1,18 +1,26 @@
-# AGENTS.md — Portfolio (Spec Repo)
+# AGENTS.md — Portfolio
 
 ## What this repo is
-Spec-driven development template for a personal portfolio site. This repo holds **specs only** — no source code yet. The actual Astro project lives elsewhere or will be scaffolded after feature 001.
+Spec-driven personal portfolio site. Specs live alongside the Astro app at the repo root.
 
 ## Architecture
 - `constitution/` — stable project rules (mission, tech-stack, roadmap). Rarely changes.
 - `features/NNN-feature-name/` — one folder per feature: `spec.md`, `plan.md`, `tasks.md`.
+- `src/` — Astro components, layouts, pages, and styles.
+- `public/` — static assets.
 
 ## Feature workflow
-1. Create `features/NNN-feature-name/` (next number from roadmap).
+1. Create `features/NNN-feature-name/` with the next available number.
 2. Write spec → plan → tasks.
-3. Implement (actual code goes in a separate Astro project dir).
+3. Implement in `src/` at the repo root.
 4. Validate against acceptance criteria in `spec.md`.
 5. Move feature to "Done" in `constitution/roadmap.md`.
+
+## Development
+- `npm install` — install dependencies (Node >= 22.12.0).
+- `npm run dev` — local dev server at `http://localhost:4321`.
+- `npm run build` — production build to `./dist/`.
+- `npm run preview` — preview the production build locally.
 
 ## Constitution rules
 - If a feature conflicts with `mission.md` or `tech-stack.md`, the feature is reconsidered, not the constitution.
@@ -25,4 +33,3 @@ Spec-driven development template for a personal portfolio site. This repo holds 
 
 ## Gotchas
 - Feature 001 (Base Structure and Hero) is currently in progress.
-- No `package.json`, `src/`, or build tooling exists yet — this is a planning repo.
