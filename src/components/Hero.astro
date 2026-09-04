@@ -1,4 +1,11 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
+
+const cvPath = path.resolve(process.cwd(), 'docs/cv.md');
+const raw = fs.readFileSync(cvPath, 'utf-8');
+const { data: meta } = matter(raw);
 ---
 
 <section
@@ -11,7 +18,7 @@
 
   <div class="relative z-10 mx-auto max-w-3xl text-center">
     <p class="mb-4 text-sm font-medium tracking-widest text-indigo-400 uppercase">
-      Desarrollador Full Stack
+      {meta.title}
     </p>
 
     <h1
@@ -33,10 +40,10 @@
 
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
       <a
-        href="#proyectos"
+        href="#cv"
         class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-indigo-400 hover:shadow-lg hover:shadow-indigo-500/25"
       >
-        Ver proyectos
+        Ver CV
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-4 w-4"
@@ -51,7 +58,7 @@
       </a>
 
       <a
-        href="https://github.com/"
+        href={meta.github}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-8 py-3 text-sm font-semibold text-zinc-300 transition-all hover:border-zinc-500 hover:text-zinc-100"
@@ -70,7 +77,7 @@
       </a>
 
       <a
-        href="https://linkedin.com/"
+        href={meta.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-8 py-3 text-sm font-semibold text-zinc-300 transition-all hover:border-zinc-500 hover:text-zinc-100"
