@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: node ./dist/server/entry.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 22
