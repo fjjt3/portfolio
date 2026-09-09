@@ -1,25 +1,25 @@
 ---
 name: Francisco Jiménez
 title: Software Engineer
-location: Málaga, España
+location: Málaga, Spain
 email: francisco.javier.*****@gmail.com
 github: https://github.com/fjjt3
 linkedin: https://linkedin.com/in/francisco-javier-jt/
 ---
 
-## Perfil Profesional
+## Professional Profile
 
-Software Engineer apasionado y orientado a resultados, con experiencia en desarrollo y mantenimiento de software. Dominio de Java, Python, Springboot, FastApi y PostgreSQL. Hábil en metodologías ágiles, resolución creativa de problemas y trabajo en equipo. Aprendiz rápido con fuerte capacidad de adaptación a nuevas tecnologías y desafíos.
+Results-oriented Software Engineer with experience in software development and maintenance. Proficient in Java, Python, Spring Boot, FastAPI, and PostgreSQL. Skilled in agile methodologies, creative problem-solving, and teamwork. Quick learner with a strong ability to adapt to new technologies and challenges.
 
-## Experiencia
+## Experience
 
 ### Software Engineer — CGI
-_September 2025 – Current_
+_September 2025 – Present_
 
-_The Workshop betting software ._
+_The Workshop betting software._
 - Built scalable microservices using REST (OpenAPI), gRPC, and WebSockets.
 
-- Main technologies: Claude Code, Java, Springboot, Quarkus, Github, Docker, Azure,OpenApi Swagger, Junit.
+- Main technologies: Claude Code, Java, Spring Boot, Quarkus, GitHub, Docker, Azure, OpenAPI Swagger, JUnit.
 
 
 
@@ -27,19 +27,18 @@ _The Workshop betting software ._
 _January 2024 – August 2025_
 
 _BMW software engineering for car factory production lines._
-- Developing rest services and microservices.
-- Observability management and issue resolution with Grafana and
-Promethetus.
-- Construí APIs RESTful e integré servicios de terceros.
-- Interacted directly with factory users to troubleshooting incidents,identify root causes, and define solutions or new features.
+- Developed REST services and microservices.
+- Managed observability and resolved issues with Grafana and Prometheus.
+- Built RESTful APIs and integrated third-party services.
+- Interacted directly with factory users to troubleshoot incidents, identify root causes, and define solutions or new features.
 
 _BMW time tracking application_
-- Developing rest services and microservices.
-- Unit test.
-- Construí APIs RESTful e integré servicios de terceros.
-- Cloud developing.
+- Developed REST services and microservices.
+- Wrote unit tests.
+- Built RESTful APIs and integrated third-party services.
+- Cloud development.
 
-- Main technologies: Java, Springboot, Quarkus, Github, Docker, Azure, OpenApi Swagger, Junit.
+- Main technologies: Java, Spring Boot, Quarkus, GitHub, Docker, Azure, OpenAPI Swagger, JUnit.
 
 
 
@@ -47,49 +46,45 @@ _BMW time tracking application_
 _January 2022 – January 2024_
 
 _Business Intelligence Platform._
-- Developing rest services and microservices.
-- Unit test..
-- Construí APIs RESTful e integré servicios de terceros.
-- Aplicé metodologías ágiles (Scrum, Kanban) para gestión de proyectos.
+- Developed REST services and microservices.
+- Wrote unit and integration tests.
+- Built RESTful APIs and integrated third-party services.
+- Applied agile methodologies (Scrum, Kanban) for project management.
 
 _Custom GPT chatbot._
-- Developing backend services.
-- Unit test.Integration test.
-- Construí APIs RESTful e integré servicios de terceros.
+- Developed backend services.
+- Wrote unit and integration tests.
+- Built RESTful APIs and integrated third-party services.
 
-- Main technologies: Java, Springboot, Python, FastAPI, Flask, Pytest,OpenAPI Swagger, Github, Docker, Azure, Cypress.
-
-
-## Formación
-
-### Grado Superior en Desarrollo de Aplicaciones Multiplataforma — Medac
-_Mar 2022 – Ago 2022_
+- Main technologies: Java, Spring Boot, Python, FastAPI, Flask, Pytest, OpenAPI Swagger, GitHub, Docker, Azure, Cypress.
 
 
+## Education
 
-### Arquitecto — Universidad de Buenos Aires
-_Mar 2016 – Dic 2021_
+### Higher National Diploma in Multiplatform Application Development — Medac
+_March 2022 – August 2022_
 
-Planificación Urbana, Diseño Arquitectónico, Tecnología de la Construcción.
 
-## Habilidades
 
-**Lenguajes:** Java,  Python
 
-**Frameworks:** Springboot, Quarkus, FastAPI
+## Skills
 
-**Backend:**  REST APIs, OpenApi
+**Languages:** Java, Python
 
-**Bases de Datos:** PostgreSQL, MySQL, MongoDb
+**Frameworks:** Spring Boot, Quarkus, FastAPI
 
-**Herramientas:** Claude Code, Opencode, Git, GitHub, Jira, Postman, Trello
+**Backend:** REST APIs, OpenAPI
 
-**Metodologías:** Agile/Scrum, Kanban, Pair Programming, TDD, SDD
+**Databases:** PostgreSQL, MySQL, MongoDB
 
-## Idiomas
+**Tools:** Claude Code, OpenCode, Git, GitHub, Jira, Postman, Trello
 
-- **Español** — Nativo
-- **Inglés** — Avanzado
-- **Alemán** — Avanzado
-- **Francés** — Avanzado
-- **Ruso** — Medio
+**Methodologies:** Agile/Scrum, Kanban, Pair Programming, TDD, SDD
+
+## Languages
+
+- **Spanish** — Native
+- **English** — Advanced
+- **German** — Advanced
+- **French** — Advanced
+- **Russian** — Intermediate

@@ -8,9 +8,9 @@ const raw = fs.readFileSync(cvPath, 'utf-8');
 const { data: meta } = matter(raw);
 
 const links = [
-  { label: 'Inicio', href: '#' },
+  { label: 'Home', href: '#' },
   { label: 'CV', href: '#cv' },
-  { label: 'Proyectos', href: meta.github, external: true },
+  { label: 'Projects', href: meta.github, external: true },
 ];
 ---
 
@@ -18,7 +18,7 @@ const links = [
   class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl"
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-lg font-bold tracking-tight text-zinc-100">
+    <a href="/" class="font-display text-xl font-medium tracking-tight text-zinc-100">
       Francisco<span class="text-indigo-400">.</span>
     </a>
 
@@ -45,7 +45,7 @@ const links = [
     <button
       id="menu-toggle"
       class="flex flex-col gap-1.5 md:hidden"
-      aria-label="Abrir menú"
+      aria-label="Open menu"
     >
       <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar1"></span>
       <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar2"></span>
