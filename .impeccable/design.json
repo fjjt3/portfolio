@@ -78,20 +78,17 @@
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero headline only; clamp(3rem, 7vw, 4.5rem)." },
+      "display": { "displayName": "Display", "purpose": "CV identity and section headings; clamp(3rem, 7vw, 4.5rem)." },
       "headline": { "displayName": "Headline", "purpose": "Section titles and the name block." },
       "title": { "displayName": "Title", "purpose": "Subsection headings inside CV prose." },
       "body": { "displayName": "Body", "purpose": "Lead paragraphs and CV copy." },
       "body-small": { "displayName": "Body Small", "purpose": "Navigation links and metadata; regular weight, not label weight." },
-      "label": { "displayName": "Label", "purpose": "Pill-button text (Inter 600)." },
+      "terminal": { "displayName": "Terminal", "purpose": "Hero controls, short terminal prompts, and technical metadata; never long-form copy." },
+      "terminal-display": { "displayName": "Terminal Display", "purpose": "Translated hero headline inside the framed workstation window." },
+      "label": { "displayName": "Label", "purpose": "General action text (Inter 600)." },
       "label-medium": { "displayName": "Label Medium", "purpose": "Compact CV action-button text (Inter 500); one step lighter than pills." }
     },
     "shadows": [
-      {
-        "name": "cta-hover-glow",
-        "value": "0 10px 15px -3px rgb(99 102 241 / 0.25), 0 4px 6px -4px rgb(99 102 241 / 0.25)",
-        "purpose": "The only shadow in the system: an indigo glow under a hovered primary pill CTA."
-      },
       {
         "name": "focus-ring",
         "value": "2px solid #818cf8 (outline-offset: 2px)",
@@ -102,7 +99,7 @@
       {
         "name": "hero-aura",
         "value": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.15), transparent)",
-        "purpose": "The only gradient in the system: one soft indigo wash bleeding down from the top edge behind the hero, and nowhere else."
+        "purpose": "A soft indigo wash behind the hero, layered beneath the low-contrast terminal grid."
       }
     ],
     "motion": [
@@ -129,17 +126,17 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Indigo pill CTA used in the hero; gains the indigo glow on hover.",
+      "description": "Squared, monospace indigo CTA inside the hero terminal; brightens on hover.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">View CV <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z\" clip-rule=\"evenodd\"/></svg></a>",
-      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:0.5rem; background:#6366f1; color:#ffffff; padding:12px 32px; border-radius:9999px; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:600; line-height:1; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary svg { width:1rem; height:1rem; } .ds-btn-primary:hover { background:#818cf8; box-shadow:0 10px 15px -3px rgb(99 102 241 / 0.25), 0 4px 6px -4px rgb(99 102 241 / 0.25); } .ds-btn-primary:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:0.5rem; background:#6366f1; color:#ffffff; padding:12px 24px; border-radius:2px; font-family:'IBM Plex Mono', SFMono-Regular, Consolas, monospace; font-size:0.875rem; font-weight:500; line-height:1; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary svg { width:1rem; height:1rem; } .ds-btn-primary:hover { background:#818cf8; } .ds-btn-primary:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Transparent pill with a hairline Edge border; brightens border and text on hover.",
+      "description": "Squared monospace social link inside the hero terminal; brightens border and text on hover.",
       "html": "<a class=\"ds-btn-outline\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z\"/></svg>GitHub</a>",
-      "css": ".ds-btn-outline { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:#d4d4d8; padding:12px 32px; border-radius:9999px; border:1px solid #3f3f46; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:600; line-height:1; text-decoration:none; transition:border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-outline svg { width:1.25rem; height:1.25rem; } .ds-btn-outline:hover { border-color:#71717a; color:#f4f4f5; } .ds-btn-outline:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+      "css": ".ds-btn-outline { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:#d4d4d8; padding:12px 24px; border-radius:2px; border:1px solid #3f3f46; font-family:'IBM Plex Mono', SFMono-Regular, Consolas, monospace; font-size:0.875rem; font-weight:500; line-height:1; text-decoration:none; transition:border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-outline svg { width:1.25rem; height:1.25rem; } .ds-btn-outline:hover { border-color:#71717a; color:#f4f4f5; } .ds-btn-outline:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
     },
     {
       "name": "Compact Action Button",
@@ -169,9 +166,9 @@
       "name": "Hero Display",
       "kind": "custom",
       "refersTo": "display",
-      "description": "The serif hero headline; largest expression of the display role.",
-      "html": "<h1 class=\"ds-display\">I build digital experiences that matter.</h1>",
-      "css": ".ds-display { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-weight:500; font-size:clamp(3rem, 7vw, 4.5rem); line-height:1.05; letter-spacing:-0.025em; color:#f4f4f5; margin:0; }"
+      "description": "The translated IBM Plex Mono headline inside the hero terminal window.",
+      "html": "<h1 class=\"ds-terminal-display\"><span aria-hidden=\"true\">&gt;</span>Backend systems that hold up in production.</h1>",
+      "css": ".ds-terminal-display { font-family:'IBM Plex Mono', SFMono-Regular, Consolas, monospace; font-weight:500; font-size:clamp(1.875rem, 5vw, 3.75rem); line-height:1.2; letter-spacing:-0.06em; color:#f4f4f5; margin:0; } .ds-terminal-display > span { color:#818cf8; }"
     },
     {
       "name": "Section Heading",
@@ -207,37 +204,33 @@
     }
   ],
   "narrative": {
-    "northStar": "The Midnight Engineer's Desk",
-    "overview": "This is a quiet work surface after hours: a near-black canvas, one indigo signal, and a serif that speaks in a low, certain voice. The system is calm, precise, and understated. Nothing shouts, nothing is decorated for its own sake — depth and credibility come from typographic contrast and from the engineering record the content carries, never from ornament.\n\nThe identity lives in a deliberate split. Newsreader, a literary serif, carries everything that has a voice: the hero line, section titles, the brand mark, the avatar initials, and italicized emphasis. Inter, a neutral grotesque, carries everything functional: navigation, buttons, metadata, and body copy. The two never swap roles, which is what keeps the page feeling like a considered document rather than a template.\n\nStructurally the page is a single editorial column over a flat, ink-black field. Large surfaces are not carded; they are separated by full-width hairlines. Color is nearly monochrome — zinc for nearly everything — with a single indigo reserved for action and emphasis. Depth is a response to state, not an ambient quality: at rest, everything is flat, with one deliberate exception — a soft indigo aura that rises behind the hero and nowhere else.",
+    "northStar": "The Midnight Engineer's Workstation",
+    "retroTreatment": "A clearly framed late-eighties terminal window leads the hero: IBM Plex Mono headline and controls, a > prompt, and a low-contrast indigo grid on the existing ink-black canvas. The CV remains editorial. No extra accent colors, scanlines, or arcade ornament.",
+    "overview": "This is an engineer's workstation after hours: an ink-black canvas, one indigo signal, and a terminal window that makes the late-eighties reference immediately legible. The hero is framed like a compact console, with IBM Plex Mono, a > prompt, squared controls, and a low-contrast technical grid. The reference is clear but restrained: no arcade imagery, flashing effects, or added accent colors.\n\nIBM Plex Mono carries the terminal headline, prompt, and hero controls. Newsreader remains in the brand mark and CV identity; Inter carries navigation, supporting copy, and the CV body. The first viewport gets a distinct workstation character while the long-form CV remains calm and readable.\n\nStructurally the hero is a framed terminal window over a subtle indigo grid; the CV below remains a single editorial column with full-width hairlines. Color is nearly monochrome — zinc for nearly everything — with indigo reserved for the prompt, status signal, and actions. The grid and frame create the workstation silhouette without a second accent color or a full-site skin.",
     "keyCharacteristics": [
-      "Ink-black canvas with a one-color indigo signal used on ≤10% of any screen.",
-      "Serif-for-voice, grotesque-for-function; the two never trade places.",
-      "Flat by default; the only shadow is an indigo glow under a hovered primary CTA.",
-      "One ambient indigo aura, hero-only, bleeding up from the top edge.",
-      "Flat, uncarded sections separated by full-width hairlines, not boxes.",
-      "Binary radius language: fully round pills or a barely-rounded 8px, little in between."
+      "Ink-black canvas with a one-color indigo signal.",
+      "A framed terminal hero, technical grid, monospace headline, and > prompt.",
+      "Newsreader for the brand/CV identity; Inter for navigation and reading copy.",
+      "CV remains flat and document-like, with full-width hairlines."
     ],
     "rules": [
       { "name": "The One Signal Rule", "body": "Indigo is the only chromatic color in the system and should occupy no more than ~10% of any given screen. Its rarity is the point — if indigo is everywhere, nothing is signaled.", "section": "colors" },
       { "name": "The Selection Rule", "body": "Text selection is the one other place indigo is allowed to appear: a 30%-opacity Signal Indigo wash (selection:bg-indigo-500/30). It never becomes a background fill.", "section": "colors" },
-      { "name": "The Serif-For-Voice Rule", "body": "Newsreader appears only where identity and voice live — hero, section titles, brand mark, initials, and italicized prose. Every functional element is Inter. Never set a button, a nav link, or a label in the serif.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. The only shadow in the system is the indigo glow beneath a hovered primary CTA — no cards, panels, or navigation receive a resting shadow.", "section": "elevation" },
-      { "name": "The Hero Aura Rule", "body": "One ambient indigo glow, hero section only, low-opacity (15%) and edge-anchored. It never migrates to other sections and never becomes a second gradient.", "section": "elevation" }
+      { "name": "The Serif-For-Voice Rule", "body": "Newsreader carries the brand and CV identity, plus italic prose. Inter handles navigation, supporting copy, and CV reading copy. IBM Plex Mono leads the hero headline, prompt, and controls. Never set navigation in the serif.", "section": "typography" },
+      { "name": "The Terminal-For-Hero Rule", "body": "IBM Plex Mono leads the framed hero: headline, prompt, and actions. Keep supporting copy and CV prose readable in Inter.", "section": "typography" },
+      { "name": "The Terminal Frame Rule", "body": "The hero alone uses a bordered terminal window; the CV remains unboxed and document-like.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep Signal Indigo to ≤10% of a screen — CTAs, the brand dot, selection wash, focus rings, the hero aura, and one hover glow.",
-      "Do set all identity and voice in Newsreader (hero, section titles, brand, initials, italic prose) and everything functional in Inter.",
+      "Do use indigo as the only chromatic signal, including the hero grid and prompt.",
+      "Do use IBM Plex Mono for the hero headline, prompt, and hero controls; keep the CV body in Inter.",
       "Do separate content with full-width Hairline borders rather than cards, boxes, or resting shadows.",
       "Do apply the shared focus ring everywhere interactive: outline: 2px solid #818cf8; outline-offset: 2px.",
-      "Do keep the radius binary — fully round pills, 8px compact actions; avoid intermediate radii.",
-      "Do confine the hero aura to the hero, at 15% opacity, edge-anchored."
+      "Do keep the hero frame and controls squared; retain 8px compact CV actions."
     ],
     "donts": [
-      "Don't introduce a second chromatic color, and don't add any gradient beyond the single hero aura — no gradient buttons, chips, text, or section fills.",
-      "Don't add resting shadows to cards, panels, or the navbar; the only shadow is the primary-CTA hover glow.",
-      "Don't card or heavily round large content surfaces — keep them squared and hairline-separated.",
-      "Don't set buttons, nav links, or labels in the serif, and don't run body copy in Newsreader.",
-      "Don't reuse Signal Indigo as a large fill for backgrounds or banners; it stays an accent."
+      "Don't introduce a second chromatic color, scanlines, or arcade decoration.",
+      "Don't frame or card the CV; the terminal window is a hero-only treatment.",
+      "Don't run supporting copy or CV prose in IBM Plex Mono."
     ]
   }
 }

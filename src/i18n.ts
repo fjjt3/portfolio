@@ -15,6 +15,7 @@ interface LocaleMessages {
     sections: CvSection[];
   };
   hero: {
+    kicker: string;
     heading: string;
     description: string;
     viewCv: string;
@@ -47,6 +48,7 @@ export const locales: Record<Locale, LocaleMessages> = {
       cvLinkedin: 'LinkedIn',
     },
     hero: {
+      kicker: 'Backend engineering / Málaga',
       heading: 'Backend systems that hold up in production.',
       description:
         'Software engineer in Málaga working across Java, Spring Boot, and Quarkus. Microservices, cloud, and the observability around them.',
@@ -147,6 +149,7 @@ _March 2022 – August 2022_`,
       cvLinkedin: 'LinkedIn',
     },
     hero: {
+      kicker: 'Ingeniería backend / Málaga',
       heading: 'Sistemas backend preparados para producción.',
       description:
         'Ingeniero de software en Málaga, especializado en Java, Spring Boot y Quarkus. Microservicios, cloud y observabilidad.',
@@ -247,6 +250,7 @@ _Marzo de 2022 – Agosto de 2022_`,
       cvLinkedin: 'LinkedIn',
     },
     hero: {
+      kicker: 'Backend-Entwicklung / Málaga',
       heading: 'Backend-Systeme, die sich im Produktivbetrieb bewähren.',
       description:
         'Softwareentwickler in Málaga mit Schwerpunkt auf Java, Spring Boot und Quarkus. Microservices, Cloud und Observability.',
@@ -347,6 +351,7 @@ _März 2022 – August 2022_`,
       cvLinkedin: 'LinkedIn',
     },
     hero: {
+      kicker: 'Ingénierie backend / Málaga',
       heading: 'Des systèmes backend fiables en production.',
       description:
         'Ingénieur logiciel à Málaga, spécialisé en Java, Spring Boot et Quarkus. Microservices, cloud et observabilité.',
@@ -447,6 +452,7 @@ _Mars 2022 – août 2022_`,
       cvLinkedin: 'LinkedIn',
     },
     hero: {
+      kicker: 'Backend-разработка / Малага',
       heading: 'Backend-системы, надёжно работающие в production.',
       description:
         'Инженер-программист в Малаге, специализирующийся на Java, Spring Boot и Quarkus. Микросервисы, облачные решения и наблюдаемость.',
