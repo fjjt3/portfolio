@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import { locales } from '../i18n';
 
 const cvPath = path.resolve(process.cwd(), 'docs/cv.md');
 const raw = fs.readFileSync(cvPath, 'utf-8');
@@ -20,12 +21,11 @@ const { data: meta } = matter(raw);
     <h1
       class="font-display text-5xl font-medium leading-[1.05] tracking-tight text-zinc-100 sm:text-6xl md:text-7xl"
     >
-      I build digital experiences that matter.
+      <span data-i18n="heroHeading">{locales.en.hero.heading}</span>
     </h1>
 
     <p class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-zinc-400">
-      Open source projects, modern interfaces, and high performance.
-      Explore my work and discover what I can contribute.
+      <span data-i18n="heroDescription">{locales.en.hero.description}</span>
     </p>
 
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -33,7 +33,7 @@ const { data: meta } = matter(raw);
         href="#cv"
         class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-indigo-400 hover:shadow-lg hover:shadow-indigo-500/25"
       >
-        View CV
+        <span data-i18n="heroViewCv">{locales.en.hero.viewCv}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-4 w-4"

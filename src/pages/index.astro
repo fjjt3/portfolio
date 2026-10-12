@@ -10,3 +10,106 @@ import CvSection from '../components/CvSection.astro';
   <Hero />
   <CvSection />
 </Layout>
+
+<script>
+  import { marked } from 'marked';
+  import { isLocale, locales, type Locale } from '../i18n';
+
+  const languageSelector =
+    document.querySelector<HTMLSelectElement>('#language-selector');
+
+  function getText(locale: Locale, key: string): string | undefined {
+    const translations = locales[locale];
+
+    if (key === 'heroHeading') {
+      return translations.hero.heading || locales.en.hero.heading;
+    }
+    if (key === 'heroDescription') {
+      return translations.hero.description || locales.en.hero.description;
+    }
+    if (key === 'heroViewCv') {
+      return translations.hero.viewCv || locales.en.hero.viewCv;
+    }
+
+    return translations.ui[key] || locales.en.ui[key];
+  }
+
+  function applyLocale(locale: Locale) {
+    const translations = locales[locale];
+
+    document.documentElement.lang = locale;
+    document.documentElement.dataset.locale = locale;
+    document.title = translations.documentTitle || locales.en.documentTitle;
+
+    const description =
+      document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description) {
+      description.content = translations.description || locales.en.description;
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
+      const key = element.dataset.i18n;
+      if (!key) return;
+
+      const text = getText(locale, key);
+      if (text !== undefined) element.textContent = text;
+    });
+
+    document
+      .querySelectorAll<HTMLElement>('[data-i18n-aria-label]')
+      .forEach((element) => {
+        const key = element.dataset.i18nAriaLabel;
+        if (!key) return;
+
+        const text = getText(locale, key);
+        if (text !== undefined) element.setAttribute('aria-label', text);
+      });
+
+    const role = document.querySelector<HTMLElement>('[data-cv-role]');
+    if (role) role.textContent = translations.cv.role || locales.en.cv.role;
+
+    const location = document.querySelector<HTMLElement>('[data-cv-location]');
+    if (location) {
+      location.textContent = translations.cv.location || locales.en.cv.location;
+    }
+
+    const headings = document.querySelectorAll<HTMLElement>('[data-cv-heading]');
+    const bodies = document.querySelectorAll<HTMLElement>('[data-cv-body]');
+    const sections = locales.en.cv.sections.map((fallback, index) => {
+      const translated = translations.cv.sections[index];
+      return {
+        title: translated?.title || fallback.title,
+        body: translated?.body || fallback.body,
+      };
+    });
+    if (
+      headings.length !== sections.length ||
+      bodies.length !== sections.length
+    ) {
+      throw new Error(`CV translation is incomplete for locale "${locale}".`);
+    }
+
+    sections.forEach((section, index) => {
+      headings[index].textContent = section.title;
+      bodies[index].innerHTML = marked.parse(section.body, { async: false });
+    });
+
+    if (languageSelector) languageSelector.value = locale;
+    document.dispatchEvent(new Event('portfolio-locale-change'));
+  }
+
+  const savedLocale = document.documentElement.dataset.locale;
+  const initialLocale = isLocale(savedLocale) ? savedLocale : 'en';
+  applyLocale(initialLocale);
+
+  languageSelector?.addEventListener('change', () => {
+    if (!languageSelector || !isLocale(languageSelector.value)) return;
+
+    applyLocale(languageSelector.value);
+    try {
+      window.localStorage.setItem('portfolio-locale', languageSelector.value);
+    } catch (error) {
+      console.warn('Could not save the selected language preference.', error);
+    }
+  });
+</script>

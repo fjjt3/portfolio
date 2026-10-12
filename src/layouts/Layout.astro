@@ -7,13 +7,13 @@ interface Props {
 }
 
 const {
-  title = 'Francisco — Portfolio',
-  description = 'Interactive portfolio showcasing my most interesting GitHub projects.',
+  title = 'Francisco Jiménez — Software Engineer',
+  description = 'Software engineer in Málaga. Backend services in Java, Spring Boot, and Quarkus: microservices, cloud, and observability.',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-locale="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,7 +21,6 @@ const {
     <meta name="generator" content={Astro.generator} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,6 +30,21 @@ const {
     />
 
     <title>{title}</title>
+    <script is:inline>
+      const availableLocales = ['en', 'es', 'de', 'fr', 'ru'];
+      let initialLocale = 'en';
+
+      try {
+        const savedLocale = window.localStorage.getItem('portfolio-locale');
+        if (savedLocale && availableLocales.includes(savedLocale)) {
+          initialLocale = savedLocale;
+        }
+      } catch {
+        initialLocale = 'en';
+      }
+
+      document.documentElement.dataset.locale = initialLocale;
+    </script>
   </head>
   <body
     class="min-h-screen bg-zinc-950 text-zinc-100 antialiased selection:bg-indigo-500/30"

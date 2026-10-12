@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-12T00:00:00.000Z",
+  "generatedAt": "2026-10-12T12:00:00.000Z",
   "title": "Design System: Francisco Jiménez — Portfolio",
   "extensions": {
     "colorMeta": {
@@ -46,6 +46,12 @@
         "canonical": "#a1a1aa",
         "tonalRamp": ["#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5"]
       },
+      "emphasis": {
+        "role": "neutral",
+        "displayName": "Emphasis Mist",
+        "canonical": "#a1a3b2",
+        "tonalRamp": ["#3a3b45", "#4e4f5c", "#636576", "#787a90", "#8e90a4", "#a1a3b2", "#b9bbc7", "#d3d4dc"]
+      },
       "border-subtle": {
         "role": "neutral",
         "displayName": "Hairline",
@@ -57,6 +63,12 @@
         "displayName": "Edge",
         "canonical": "#3f3f46",
         "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8"]
+      },
+      "border-depressed": {
+        "role": "neutral",
+        "displayName": "Edge Depressed",
+        "canonical": "#52525b",
+        "tonalRamp": ["#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7"]
       },
       "border-hover": {
         "role": "neutral",
@@ -70,7 +82,9 @@
       "headline": { "displayName": "Headline", "purpose": "Section titles and the name block." },
       "title": { "displayName": "Title", "purpose": "Subsection headings inside CV prose." },
       "body": { "displayName": "Body", "purpose": "Lead paragraphs and CV copy." },
-      "label": { "displayName": "Label", "purpose": "Button text and compact metadata." }
+      "body-small": { "displayName": "Body Small", "purpose": "Navigation links and metadata; regular weight, not label weight." },
+      "label": { "displayName": "Label", "purpose": "Pill-button text (Inter 600)." },
+      "label-medium": { "displayName": "Label Medium", "purpose": "Compact CV action-button text (Inter 500); one step lighter than pills." }
     },
     "shadows": [
       {
@@ -82,6 +96,13 @@
         "name": "focus-ring",
         "value": "2px solid #818cf8 (outline-offset: 2px)",
         "purpose": "Global :focus-visible treatment on every interactive element."
+      }
+    ],
+    "gradients": [
+      {
+        "name": "hero-aura",
+        "value": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.15), transparent)",
+        "purpose": "The only gradient in the system: one soft indigo wash bleeding down from the top edge behind the hero, and nowhere else."
       }
     ],
     "motion": [
@@ -124,7 +145,7 @@
       "name": "Compact Action Button",
       "kind": "button",
       "refersTo": "button-action",
-      "description": "Squared 8px indigo action used inside the CV section.",
+      "description": "Squared 8px indigo action used inside the CV section; Inter 500.",
       "html": "<a class=\"ds-btn-action\" href=\"#\">Projects</a>",
       "css": ".ds-btn-action { display:inline-flex; align-items:center; gap:0.5rem; background:#6366f1; color:#ffffff; padding:10px 20px; border-radius:8px; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:500; line-height:1; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-action:hover { background:#818cf8; } .ds-btn-action:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
     },
@@ -132,7 +153,7 @@
       "name": "Compact Outline Button",
       "kind": "button",
       "refersTo": "button-action-outline",
-      "description": "Squared 8px outlined action for secondary CV links.",
+      "description": "Squared 8px outlined action for secondary CV links; Inter 500.",
       "html": "<a class=\"ds-btn-action-outline\" href=\"#\">LinkedIn</a>",
       "css": ".ds-btn-action-outline { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:#d4d4d8; padding:10px 20px; border-radius:8px; border:1px solid #52525b; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:500; line-height:1; text-decoration:none; transition:border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-action-outline:hover { border-color:#a1a1aa; color:#f4f4f5; } .ds-btn-action-outline:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
     },
@@ -142,7 +163,7 @@
       "refersTo": "nav-link",
       "description": "Fixed, blurred navbar: serif brand mark left, Inter links right.",
       "html": "<div class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">Francisco<span>.</span></a><ul class=\"ds-nav-links\"><li><a class=\"ds-nav-link\" href=\"#\">Home</a></li><li><a class=\"ds-nav-link\" href=\"#\">CV</a></li><li><a class=\"ds-nav-link\" href=\"#\">Projects</a></li></ul></div>",
-      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; max-width:72rem; margin:0 auto; padding:16px 24px; background:rgba(9, 9, 11, 0.8); backdrop-filter:blur(24px); border-bottom:1px solid rgba(39, 39, 42, 0.5); font-family:Inter, system-ui, -apple-system, sans-serif; } .ds-nav-brand { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-size:1.25rem; font-weight:500; letter-spacing:-0.025em; color:#f4f4f5; text-decoration:none; } .ds-nav-brand span { color:#818cf8; } .ds-nav-links { display:flex; align-items:center; gap:2rem; list-style:none; margin:0; padding:0; } .ds-nav-link { color:#a1a1aa; font-size:0.875rem; text-decoration:none; transition:color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-link:hover { color:#f4f4f5; } .ds-nav-link:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; max-width:72rem; margin:0 auto; padding:16px 24px; background:rgba(9, 9, 11, 0.8); backdrop-filter:blur(24px); border-bottom:1px solid rgba(39, 39, 42, 0.5); font-family:Inter, system-ui, -apple-system, sans-serif; } .ds-nav-brand { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-size:1.25rem; font-weight:500; letter-spacing:-0.025em; color:#f4f4f5; text-decoration:none; } .ds-nav-brand span { color:#818cf8; } .ds-nav-links { display:flex; align-items:center; gap:2rem; list-style:none; margin:0; padding:0; } .ds-nav-link { color:#a1a1aa; font-size:0.875rem; font-weight:400; text-decoration:none; transition:color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-link:hover { color:#f4f4f5; } .ds-nav-link:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
     },
     {
       "name": "Hero Display",
@@ -159,6 +180,14 @@
       "description": "Serif section title used for the name block and top-level CV sections.",
       "html": "<h2 class=\"ds-section-title\">Experience</h2>",
       "css": ".ds-section-title { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-size:2.25rem; font-weight:500; letter-spacing:-0.025em; line-height:1.1; color:#f4f4f5; margin:0; }"
+    },
+    {
+      "name": "Prose Emphasis",
+      "kind": "custom",
+      "refersTo": "emphasis",
+      "description": "Italic serif emphasis and indigo strong inside CV markdown prose; the active prose accents.",
+      "html": "<p class=\"ds-prose\">Led <em>observability</em> and <strong>on-call ownership</strong> across services.</p>",
+      "css": ".ds-prose { font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; line-height:1.7; color:#a1a1aa; margin:0; } .ds-prose strong { color:#a5b4fc; font-weight:600; } .ds-prose em { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-style:italic; font-size:1.05em; color:#a1a3b2; }"
     },
     {
       "name": "Hairline Divider",
@@ -179,28 +208,32 @@
   ],
   "narrative": {
     "northStar": "The Midnight Engineer's Desk",
-    "overview": "This is a quiet work surface after hours: a near-black canvas, one indigo signal, and a serif that speaks in a low, certain voice. The system is calm, precise, and understated. Nothing shouts, nothing is decorated for its own sake — depth and credibility come from typographic contrast and from the engineering record the content carries, never from ornament.\n\nThe identity lives in a deliberate split. Newsreader, a literary serif, carries everything that has a voice: the hero line, section titles, the brand mark, the avatar initials, and emphasized prose. Inter, a neutral grotesque, carries everything functional: navigation, buttons, metadata, and body copy. The two never swap roles, which is what keeps the page feeling like a considered document rather than a template.\n\nStructurally the page is a single editorial column over a flat, ink-black field. Large surfaces are not carded; they are separated by full-width hairlines. Color is nearly monochrome — zinc for nearly everything — with a single indigo reserved for action and emphasis. Depth is a response to state, not an ambient quality: at rest, everything is flat.",
+    "overview": "This is a quiet work surface after hours: a near-black canvas, one indigo signal, and a serif that speaks in a low, certain voice. The system is calm, precise, and understated. Nothing shouts, nothing is decorated for its own sake — depth and credibility come from typographic contrast and from the engineering record the content carries, never from ornament.\n\nThe identity lives in a deliberate split. Newsreader, a literary serif, carries everything that has a voice: the hero line, section titles, the brand mark, the avatar initials, and italicized emphasis. Inter, a neutral grotesque, carries everything functional: navigation, buttons, metadata, and body copy. The two never swap roles, which is what keeps the page feeling like a considered document rather than a template.\n\nStructurally the page is a single editorial column over a flat, ink-black field. Large surfaces are not carded; they are separated by full-width hairlines. Color is nearly monochrome — zinc for nearly everything — with a single indigo reserved for action and emphasis. Depth is a response to state, not an ambient quality: at rest, everything is flat, with one deliberate exception — a soft indigo aura that rises behind the hero and nowhere else.",
     "keyCharacteristics": [
       "Ink-black canvas with a one-color indigo signal used on ≤10% of any screen.",
       "Serif-for-voice, grotesque-for-function; the two never trade places.",
       "Flat by default; the only shadow is an indigo glow under a hovered primary CTA.",
+      "One ambient indigo aura, hero-only, bleeding up from the top edge.",
       "Flat, uncarded sections separated by full-width hairlines, not boxes.",
       "Binary radius language: fully round pills or a barely-rounded 8px, little in between."
     ],
     "rules": [
       { "name": "The One Signal Rule", "body": "Indigo is the only chromatic color in the system and should occupy no more than ~10% of any given screen. Its rarity is the point — if indigo is everywhere, nothing is signaled.", "section": "colors" },
-      { "name": "The Serif-For-Voice Rule", "body": "Newsreader appears only where identity and voice live — hero, section titles, brand mark, initials, and emphasized prose. Every functional element is Inter. Never set a button, a nav link, or a label in the serif.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. The only shadow in the system is the indigo glow beneath a hovered primary CTA — no cards, panels, or navigation receive a resting shadow.", "section": "elevation" }
+      { "name": "The Selection Rule", "body": "Text selection is the one other place indigo is allowed to appear: a 30%-opacity Signal Indigo wash (selection:bg-indigo-500/30). It never becomes a background fill.", "section": "colors" },
+      { "name": "The Serif-For-Voice Rule", "body": "Newsreader appears only where identity and voice live — hero, section titles, brand mark, initials, and italicized prose. Every functional element is Inter. Never set a button, a nav link, or a label in the serif.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. The only shadow in the system is the indigo glow beneath a hovered primary CTA — no cards, panels, or navigation receive a resting shadow.", "section": "elevation" },
+      { "name": "The Hero Aura Rule", "body": "One ambient indigo glow, hero section only, low-opacity (15%) and edge-anchored. It never migrates to other sections and never becomes a second gradient.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep Signal Indigo to ≤10% of a screen — CTAs, the brand dot, emphasized prose, focus rings, and one hover glow.",
-      "Do set all identity and voice in Newsreader (hero, section titles, brand, initials, emphasized prose) and everything functional in Inter.",
+      "Do keep Signal Indigo to ≤10% of a screen — CTAs, the brand dot, selection wash, focus rings, the hero aura, and one hover glow.",
+      "Do set all identity and voice in Newsreader (hero, section titles, brand, initials, italic prose) and everything functional in Inter.",
       "Do separate content with full-width Hairline borders rather than cards, boxes, or resting shadows.",
       "Do apply the shared focus ring everywhere interactive: outline: 2px solid #818cf8; outline-offset: 2px.",
-      "Do keep the radius binary — fully round pills, 8px compact actions; avoid intermediate radii."
+      "Do keep the radius binary — fully round pills, 8px compact actions; avoid intermediate radii.",
+      "Do confine the hero aura to the hero, at 15% opacity, edge-anchored."
     ],
     "donts": [
-      "Don't introduce a second chromatic color or a gradient accent; the palette is one signal on zinc.",
+      "Don't introduce a second chromatic color, and don't add any gradient beyond the single hero aura — no gradient buttons, chips, text, or section fills.",
       "Don't add resting shadows to cards, panels, or the navbar; the only shadow is the primary-CTA hover glow.",
       "Don't card or heavily round large content surfaces — keep them squared and hairline-separated.",
       "Don't set buttons, nav links, or labels in the serif, and don't run body copy in Newsreader.",

@@ -2,22 +2,23 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import { locales } from '../i18n';
 
 const cvPath = path.resolve(process.cwd(), 'docs/cv.md');
 const raw = fs.readFileSync(cvPath, 'utf-8');
 const { data: meta } = matter(raw);
 
 const links = [
-  { label: 'Home', href: '#' },
-  { label: 'CV', href: '#cv' },
-  { label: 'Projects', href: meta.github, external: true },
+  { label: locales.en.ui.navHome, key: 'navHome', href: '#' },
+  { label: locales.en.ui.navCv, key: 'navCv', href: '#cv' },
+  { label: locales.en.ui.navProjects, key: 'navProjects', href: meta.github, external: true },
 ];
 ---
 
 <nav
   class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl"
 >
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-6 py-4">
     <a href="/" class="font-display text-xl font-medium tracking-tight text-zinc-100">
       Francisco<span class="text-indigo-400">.</span>
     </a>
@@ -30,7 +31,7 @@ const links = [
             {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             class="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
           >
-            {link.label}
+            <span data-i18n={link.key}>{link.label}</span>
             {link.external && (
               <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 inline h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
@@ -42,10 +43,33 @@ const links = [
       ))}
     </ul>
 
+    <label
+      class="sr-only text-sm text-zinc-400 sm:not-sr-only"
+      for="language-selector"
+      data-i18n="languageLabel"
+    >
+      Language
+    </label>
+    <select
+      id="language-selector"
+      class="ml-auto min-w-0 rounded-lg border border-zinc-700 bg-zinc-950 px-2 py-2 text-sm text-zinc-300 transition-colors md:ml-0"
+      aria-label="Language"
+      data-i18n-aria-label="languageLabel"
+    >
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="ru">Русский</option>
+    </select>
+
     <button
       id="menu-toggle"
       class="flex flex-col gap-1.5 md:hidden"
       aria-label="Open menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      data-menu-toggle
     >
       <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar1"></span>
       <span class="block h-0.5 w-6 bg-zinc-300 transition-all" id="bar2"></span>
@@ -62,7 +86,7 @@ const links = [
             {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             class="block py-2 text-sm text-zinc-400 transition-colors hover:text-zinc-100"
           >
-            {link.label}
+            <span data-i18n={link.key}>{link.label}</span>
             {link.external && (
               <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 inline h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
@@ -77,6 +101,8 @@ const links = [
 </nav>
 
 <script>
+  import { isLocale, locales } from '../i18n';
+
   const toggle = document.getElementById('menu-toggle')!;
   const menu = document.getElementById('mobile-menu')!;
   const bar1 = document.getElementById('bar1')!;
@@ -92,5 +118,18 @@ const links = [
     bar3.classList.toggle('-rotate-45');
     bar3.classList.toggle('-translate-y-2');
     toggle.setAttribute('aria-expanded', String(!isOpen));
+    const locale = document.documentElement.dataset.locale;
+    if (isLocale(locale)) {
+      const labelKey = isOpen ? 'navOpenMenu' : 'navCloseMenu';
+      toggle.setAttribute('aria-label', locales[locale].ui[labelKey]);
+    }
+  });
+
+  document.addEventListener('portfolio-locale-change', () => {
+    const locale = document.documentElement.dataset.locale;
+    if (!isLocale(locale)) return;
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    const labelKey = isOpen ? 'navCloseMenu' : 'navOpenMenu';
+    toggle.setAttribute('aria-label', locales[locale].ui[labelKey]);
   });
 </script>

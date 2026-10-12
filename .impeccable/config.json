@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "src/components/CvSection.astro"
+        ],
+        "createdAt": "2026-10-12T16:59:42.563Z",
+        "reason": "DESIGN.md documents the 1.4rem in-situ h3 (Title role); sanctioned deviation"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-12T17:08:11.975Z",
+        "reason": "DESIGN.md pins Inter as the functional face; Newsreader carries voice"
+      }
+    ]
+  }
+}
