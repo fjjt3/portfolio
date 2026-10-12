@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T00:00:00.000Z",
+  "title": "Design System: Francisco Jiménez — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Signal Indigo",
+        "canonical": "#6366f1",
+        "tonalRamp": ["#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#c7d2fe"]
+      },
+      "primary-bright": {
+        "role": "primary",
+        "displayName": "Signal Indigo Bright",
+        "canonical": "#818cf8",
+        "tonalRamp": ["#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#c7d2fe", "#e0e7ff"]
+      },
+      "primary-soft": {
+        "role": "primary",
+        "displayName": "Signal Indigo Soft",
+        "canonical": "#a5b4fc",
+        "tonalRamp": ["#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#c7d2fe", "#e0e7ff", "#eef2ff"]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Ink Black",
+        "canonical": "#09090b",
+        "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8"]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Ash",
+        "canonical": "#f4f4f5",
+        "tonalRamp": ["#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"]
+      },
+      "text-body": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "#d4d4d8",
+        "tonalRamp": ["#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Fog",
+        "canonical": "#a1a1aa",
+        "tonalRamp": ["#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5"]
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#27272a",
+        "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8"]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Edge",
+        "canonical": "#3f3f46",
+        "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8"]
+      },
+      "border-hover": {
+        "role": "neutral",
+        "displayName": "Edge Bright",
+        "canonical": "#71717a",
+        "tonalRamp": ["#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only; clamp(3rem, 7vw, 4.5rem)." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles and the name block." },
+      "title": { "displayName": "Title", "purpose": "Subsection headings inside CV prose." },
+      "body": { "displayName": "Body", "purpose": "Lead paragraphs and CV copy." },
+      "label": { "displayName": "Label", "purpose": "Button text and compact metadata." }
+    },
+    "shadows": [
+      {
+        "name": "cta-hover-glow",
+        "value": "0 10px 15px -3px rgb(99 102 241 / 0.25), 0 4px 6px -4px rgb(99 102 241 / 0.25)",
+        "purpose": "The only shadow in the system: an indigo glow under a hovered primary pill CTA."
+      },
+      {
+        "name": "focus-ring",
+        "value": "2px solid #818cf8 (outline-offset: 2px)",
+        "purpose": "Global :focus-visible treatment on every interactive element."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-transition",
+        "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default color/box-shadow transition for buttons, links, and borders."
+      },
+      {
+        "name": "scroll-smooth",
+        "value": "smooth (auto under prefers-reduced-motion: reduce)",
+        "purpose": "Anchor scrolling from the navbar; disabled for reduced-motion users."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Indigo pill CTA used in the hero; gains the indigo glow on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">View CV <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z\" clip-rule=\"evenodd\"/></svg></a>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:0.5rem; background:#6366f1; color:#ffffff; padding:12px 32px; border-radius:9999px; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:600; line-height:1; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary svg { width:1rem; height:1rem; } .ds-btn-primary:hover { background:#818cf8; box-shadow:0 10px 15px -3px rgb(99 102 241 / 0.25), 0 4px 6px -4px rgb(99 102 241 / 0.25); } .ds-btn-primary:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent pill with a hairline Edge border; brightens border and text on hover.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z\"/></svg>GitHub</a>",
+      "css": ".ds-btn-outline { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:#d4d4d8; padding:12px 32px; border-radius:9999px; border:1px solid #3f3f46; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:600; line-height:1; text-decoration:none; transition:border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-outline svg { width:1.25rem; height:1.25rem; } .ds-btn-outline:hover { border-color:#71717a; color:#f4f4f5; } .ds-btn-outline:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+    },
+    {
+      "name": "Compact Action Button",
+      "kind": "button",
+      "refersTo": "button-action",
+      "description": "Squared 8px indigo action used inside the CV section.",
+      "html": "<a class=\"ds-btn-action\" href=\"#\">Projects</a>",
+      "css": ".ds-btn-action { display:inline-flex; align-items:center; gap:0.5rem; background:#6366f1; color:#ffffff; padding:10px 20px; border-radius:8px; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:500; line-height:1; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-action:hover { background:#818cf8; } .ds-btn-action:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+    },
+    {
+      "name": "Compact Outline Button",
+      "kind": "button",
+      "refersTo": "button-action-outline",
+      "description": "Squared 8px outlined action for secondary CV links.",
+      "html": "<a class=\"ds-btn-action-outline\" href=\"#\">LinkedIn</a>",
+      "css": ".ds-btn-action-outline { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:#d4d4d8; padding:10px 20px; border-radius:8px; border:1px solid #52525b; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:0.875rem; font-weight:500; line-height:1; text-decoration:none; transition:border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-action-outline:hover { border-color:#a1a1aa; color:#f4f4f5; } .ds-btn-action-outline:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Fixed, blurred navbar: serif brand mark left, Inter links right.",
+      "html": "<div class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">Francisco<span>.</span></a><ul class=\"ds-nav-links\"><li><a class=\"ds-nav-link\" href=\"#\">Home</a></li><li><a class=\"ds-nav-link\" href=\"#\">CV</a></li><li><a class=\"ds-nav-link\" href=\"#\">Projects</a></li></ul></div>",
+      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; max-width:72rem; margin:0 auto; padding:16px 24px; background:rgba(9, 9, 11, 0.8); backdrop-filter:blur(24px); border-bottom:1px solid rgba(39, 39, 42, 0.5); font-family:Inter, system-ui, -apple-system, sans-serif; } .ds-nav-brand { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-size:1.25rem; font-weight:500; letter-spacing:-0.025em; color:#f4f4f5; text-decoration:none; } .ds-nav-brand span { color:#818cf8; } .ds-nav-links { display:flex; align-items:center; gap:2rem; list-style:none; margin:0; padding:0; } .ds-nav-link { color:#a1a1aa; font-size:0.875rem; text-decoration:none; transition:color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-link:hover { color:#f4f4f5; } .ds-nav-link:focus-visible { outline:2px solid #818cf8; outline-offset:2px; }"
+    },
+    {
+      "name": "Hero Display",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "The serif hero headline; largest expression of the display role.",
+      "html": "<h1 class=\"ds-display\">I build digital experiences that matter.</h1>",
+      "css": ".ds-display { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-weight:500; font-size:clamp(3rem, 7vw, 4.5rem); line-height:1.05; letter-spacing:-0.025em; color:#f4f4f5; margin:0; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Serif section title used for the name block and top-level CV sections.",
+      "html": "<h2 class=\"ds-section-title\">Experience</h2>",
+      "css": ".ds-section-title { font-family:Newsreader, Georgia, 'Times New Roman', serif; font-size:2.25rem; font-weight:500; letter-spacing:-0.025em; line-height:1.1; color:#f4f4f5; margin:0; }"
+    },
+    {
+      "name": "Hairline Divider",
+      "kind": "custom",
+      "refersTo": "border-subtle",
+      "description": "Full-width rule that separates uncarded content blocks.",
+      "html": "<hr class=\"ds-divider\" />",
+      "css": ".ds-divider { border:0; border-top:1px solid rgba(39, 39, 42, 0.7); margin:0; }"
+    },
+    {
+      "name": "Avatar Badge",
+      "kind": "custom",
+      "refersTo": "button-outline",
+      "description": "Round initials badge with an Edge Bright ring; serif as graphic element.",
+      "html": "<div class=\"ds-avatar\">FJ</div>",
+      "css": ".ds-avatar { display:flex; align-items:center; justify-content:center; width:7rem; height:7rem; border-radius:9999px; border:1px solid rgba(113, 113, 122, 0.6); font-family:Newsreader, Georgia, 'Times New Roman', serif; font-size:2.25rem; font-weight:500; color:#f4f4f5; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Midnight Engineer's Desk",
+    "overview": "This is a quiet work surface after hours: a near-black canvas, one indigo signal, and a serif that speaks in a low, certain voice. The system is calm, precise, and understated. Nothing shouts, nothing is decorated for its own sake — depth and credibility come from typographic contrast and from the engineering record the content carries, never from ornament.\n\nThe identity lives in a deliberate split. Newsreader, a literary serif, carries everything that has a voice: the hero line, section titles, the brand mark, the avatar initials, and emphasized prose. Inter, a neutral grotesque, carries everything functional: navigation, buttons, metadata, and body copy. The two never swap roles, which is what keeps the page feeling like a considered document rather than a template.\n\nStructurally the page is a single editorial column over a flat, ink-black field. Large surfaces are not carded; they are separated by full-width hairlines. Color is nearly monochrome — zinc for nearly everything — with a single indigo reserved for action and emphasis. Depth is a response to state, not an ambient quality: at rest, everything is flat.",
+    "keyCharacteristics": [
+      "Ink-black canvas with a one-color indigo signal used on ≤10% of any screen.",
+      "Serif-for-voice, grotesque-for-function; the two never trade places.",
+      "Flat by default; the only shadow is an indigo glow under a hovered primary CTA.",
+      "Flat, uncarded sections separated by full-width hairlines, not boxes.",
+      "Binary radius language: fully round pills or a barely-rounded 8px, little in between."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Indigo is the only chromatic color in the system and should occupy no more than ~10% of any given screen. Its rarity is the point — if indigo is everywhere, nothing is signaled.", "section": "colors" },
+      { "name": "The Serif-For-Voice Rule", "body": "Newsreader appears only where identity and voice live — hero, section titles, brand mark, initials, and emphasized prose. Every functional element is Inter. Never set a button, a nav link, or a label in the serif.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. The only shadow in the system is the indigo glow beneath a hovered primary CTA — no cards, panels, or navigation receive a resting shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Signal Indigo to ≤10% of a screen — CTAs, the brand dot, emphasized prose, focus rings, and one hover glow.",
+      "Do set all identity and voice in Newsreader (hero, section titles, brand, initials, emphasized prose) and everything functional in Inter.",
+      "Do separate content with full-width Hairline borders rather than cards, boxes, or resting shadows.",
+      "Do apply the shared focus ring everywhere interactive: outline: 2px solid #818cf8; outline-offset: 2px.",
+      "Do keep the radius binary — fully round pills, 8px compact actions; avoid intermediate radii."
+    ],
+    "donts": [
+      "Don't introduce a second chromatic color or a gradient accent; the palette is one signal on zinc.",
+      "Don't add resting shadows to cards, panels, or the navbar; the only shadow is the primary-CTA hover glow.",
+      "Don't card or heavily round large content surfaces — keep them squared and hairline-separated.",
+      "Don't set buttons, nav links, or labels in the serif, and don't run body copy in Newsreader.",
+      "Don't reuse Signal Indigo as a large fill for backgrounds or banners; it stays an accent."
+    ]
+  }
+}
