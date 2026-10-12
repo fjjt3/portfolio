@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { locales } from '../i18n';
+import { localeNames, locales } from '../i18n';
 
 const cvPath = path.resolve(process.cwd(), 'docs/cv.md');
 const raw = fs.readFileSync(cvPath, 'utf-8');
@@ -43,19 +43,133 @@ const links = [
       ))}
     </ul>
 
-    <label
-      class="sr-only text-sm text-zinc-400 sm:not-sr-only"
-      for="language-selector"
-      data-i18n="languageLabel"
-    >
-      Language
-    </label>
-    <select
-      id="language-selector"
-      class="ml-auto min-w-0 rounded-lg border border-zinc-700 bg-zinc-950 px-2 py-2 text-sm text-zinc-300 transition-colors md:ml-0"
-      aria-label="Language"
-      data-i18n-aria-label="languageLabel"
-    >
+    <div class="relative ml-auto shrink-0 md:ml-0" id="language-picker">
+      <button
+        id="language-trigger"
+        type="button"
+        class="inline-flex h-10 items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-950 px-3 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-500 hover:text-zinc-100"
+        aria-label="Language: English"
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="language-menu"
+      >
+        <span class="flex h-4 w-6 overflow-hidden rounded-[2px] border border-zinc-700/70" aria-hidden="true">
+          <svg data-active-flag="en" class="h-full w-full" viewBox="0 0 24 16">
+            <rect width="24" height="16" fill="#012169" />
+            <path d="M0 0 24 16M24 0 0 16" stroke="#fff" stroke-width="4" />
+            <path d="M0 0 24 16M24 0 0 16" stroke="#c8102e" stroke-width="1.6" />
+            <path d="M12 0v16M0 8h24" stroke="#fff" stroke-width="6" />
+            <path d="M12 0v16M0 8h24" stroke="#c8102e" stroke-width="2.5" />
+          </svg>
+          <svg data-active-flag="es" class="hidden h-full w-full" viewBox="0 0 24 16">
+            <rect width="24" height="4" fill="#aa151b" />
+            <rect y="4" width="24" height="8" fill="#f1bf00" />
+            <rect y="12" width="24" height="4" fill="#aa151b" />
+          </svg>
+          <svg data-active-flag="de" class="hidden h-full w-full" viewBox="0 0 24 16">
+            <rect width="24" height="5.34" fill="#000" />
+            <rect y="5.33" width="24" height="5.34" fill="#d00" />
+            <rect y="10.66" width="24" height="5.34" fill="#ffce00" />
+          </svg>
+          <svg data-active-flag="fr" class="hidden h-full w-full" viewBox="0 0 24 16">
+            <rect width="8" height="16" fill="#002395" />
+            <rect x="8" width="8" height="16" fill="#fff" />
+            <rect x="16" width="8" height="16" fill="#ed2939" />
+          </svg>
+          <svg data-active-flag="ru" class="hidden h-full w-full" viewBox="0 0 24 16">
+            <rect width="24" height="5.34" fill="#fff" />
+            <rect y="5.33" width="24" height="5.34" fill="#0039a6" />
+            <rect y="10.66" width="24" height="5.34" fill="#d52b1e" />
+          </svg>
+        </span>
+        <span id="language-code" aria-hidden="true">EN</span>
+        <svg
+          class="h-4 w-4 text-zinc-500 transition-transform"
+          id="language-chevron"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path fill-rule="evenodd" d="M5.22 7.47a.75.75 0 011.06 0L10 11.19l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 8.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <div
+        id="language-menu"
+        class="absolute right-0 top-full z-50 mt-2 hidden w-48 rounded-lg border border-zinc-800 bg-zinc-950 py-1"
+        role="menu"
+        aria-label="Languages"
+      >
+        {(['en', 'es', 'de', 'fr', 'ru'] as const).map((locale) => (
+          <button
+            type="button"
+            class="flex w-full items-center gap-3 px-3 py-2 text-left text-sm text-zinc-400 transition-colors hover:bg-zinc-900 hover:text-zinc-100 focus-visible:bg-zinc-900 focus-visible:text-zinc-100"
+            role="menuitemradio"
+            aria-checked={locale === 'en' ? 'true' : 'false'}
+            aria-label={localeNames[locale]}
+            tabindex={locale === 'en' ? 0 : -1}
+            data-locale-option={locale}
+          >
+            <span class="flex h-4 w-6 shrink-0 overflow-hidden rounded-[2px] border border-zinc-700/70" aria-hidden="true">
+              {locale === 'en' && (
+                <svg class="h-full w-full" viewBox="0 0 24 16">
+                  <rect width="24" height="16" fill="#012169" />
+                  <path d="M0 0 24 16M24 0 0 16" stroke="#fff" stroke-width="4" />
+                  <path d="M0 0 24 16M24 0 0 16" stroke="#c8102e" stroke-width="1.6" />
+                  <path d="M12 0v16M0 8h24" stroke="#fff" stroke-width="6" />
+                  <path d="M12 0v16M0 8h24" stroke="#c8102e" stroke-width="2.5" />
+                </svg>
+              )}
+              {locale === 'es' && (
+                <svg class="h-full w-full" viewBox="0 0 24 16">
+                  <rect width="24" height="4" fill="#aa151b" />
+                  <rect y="4" width="24" height="8" fill="#f1bf00" />
+                  <rect y="12" width="24" height="4" fill="#aa151b" />
+                </svg>
+              )}
+              {locale === 'de' && (
+                <svg class="h-full w-full" viewBox="0 0 24 16">
+                  <rect width="24" height="5.34" fill="#000" />
+                  <rect y="5.33" width="24" height="5.34" fill="#d00" />
+                  <rect y="10.66" width="24" height="5.34" fill="#ffce00" />
+                </svg>
+              )}
+              {locale === 'fr' && (
+                <svg class="h-full w-full" viewBox="0 0 24 16">
+                  <rect width="8" height="16" fill="#002395" />
+                  <rect x="8" width="8" height="16" fill="#fff" />
+                  <rect x="16" width="8" height="16" fill="#ed2939" />
+                </svg>
+              )}
+              {locale === 'ru' && (
+                <svg class="h-full w-full" viewBox="0 0 24 16">
+                  <rect width="24" height="5.34" fill="#fff" />
+                  <rect y="5.33" width="24" height="5.34" fill="#0039a6" />
+                  <rect y="10.66" width="24" height="5.34" fill="#d52b1e" />
+                </svg>
+              )}
+            </span>
+            <span class="flex-1">{localeNames[locale]}</span>
+            <svg
+              class:list={[
+                'h-4 w-4 text-indigo-400',
+                locale !== 'en' && 'invisible',
+              ]}
+              data-selected-mark={locale}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.75-3.75a1 1 0 011.414-1.414l3.043 3.043 6.543-6.543a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <select id="language-selector" class="hidden" tabindex="-1" aria-hidden="true">
       <option value="en">English</option>
       <option value="es">Español</option>
       <option value="de">Deutsch</option>
@@ -101,13 +215,97 @@ const links = [
 </nav>
 
 <script>
-  import { isLocale, locales } from '../i18n';
+  import { isLocale, localeNames, locales } from '../i18n';
 
   const toggle = document.getElementById('menu-toggle')!;
   const menu = document.getElementById('mobile-menu')!;
   const bar1 = document.getElementById('bar1')!;
   const bar2 = document.getElementById('bar2')!;
   const bar3 = document.getElementById('bar3')!;
+  const languageTrigger = document.getElementById('language-trigger') as HTMLButtonElement;
+  const languageMenu = document.getElementById('language-menu')!;
+  const languageCode = document.getElementById('language-code')!;
+  const languageChevron = document.getElementById('language-chevron')!;
+  const languageSelector = document.getElementById('language-selector') as HTMLSelectElement;
+  const languageOptions = Array.from(
+    languageMenu.querySelectorAll<HTMLButtonElement>('[data-locale-option]'),
+  );
+
+  function closeLanguageMenu(restoreFocus = false) {
+    languageMenu.classList.add('hidden');
+    languageTrigger.setAttribute('aria-expanded', 'false');
+    languageChevron.classList.remove('rotate-180');
+    if (restoreFocus) languageTrigger.focus();
+  }
+
+  function openLanguageMenu() {
+    languageMenu.classList.remove('hidden');
+    languageTrigger.setAttribute('aria-expanded', 'true');
+    languageChevron.classList.add('rotate-180');
+    const selected = languageOptions.find(
+      (option) => option.dataset.localeOption === languageSelector.value,
+    );
+    selected?.focus();
+  }
+
+  languageTrigger.addEventListener('click', () => {
+    if (languageTrigger.getAttribute('aria-expanded') === 'true') {
+      closeLanguageMenu();
+    } else {
+      openLanguageMenu();
+    }
+  });
+
+  languageOptions.forEach((option, index) => {
+    option.addEventListener('click', () => {
+      const locale = option.dataset.localeOption;
+      if (!isLocale(locale)) return;
+
+      languageSelector.value = locale;
+      languageSelector.dispatchEvent(new Event('change', { bubbles: true }));
+      closeLanguageMenu(true);
+    });
+
+    option.addEventListener('keydown', (event: KeyboardEvent) => {
+      let targetIndex: number | undefined;
+      if (event.key === 'ArrowDown') targetIndex = (index + 1) % languageOptions.length;
+      if (event.key === 'ArrowUp') {
+        targetIndex = (index - 1 + languageOptions.length) % languageOptions.length;
+      }
+      if (event.key === 'Home') targetIndex = 0;
+      if (event.key === 'End') targetIndex = languageOptions.length - 1;
+
+      if (targetIndex !== undefined) {
+        event.preventDefault();
+        languageOptions[targetIndex].focus();
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        closeLanguageMenu(true);
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.composedPath().includes(document.getElementById('language-picker')!)) {
+      closeLanguageMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (
+      event.key === 'Tab' &&
+      languageTrigger.getAttribute('aria-expanded') === 'true'
+    ) {
+      closeLanguageMenu();
+    }
+
+    if (
+      event.key === 'Escape' &&
+      languageTrigger.getAttribute('aria-expanded') === 'true'
+    ) {
+      closeLanguageMenu(true);
+    }
+  });
 
   toggle.addEventListener('click', () => {
     const isOpen = !menu.classList.contains('hidden');
@@ -128,8 +326,30 @@ const links = [
   document.addEventListener('portfolio-locale-change', () => {
     const locale = document.documentElement.dataset.locale;
     if (!isLocale(locale)) return;
+
+    languageCode.textContent = locale.toUpperCase();
+    languageTrigger.setAttribute(
+      'aria-label',
+      `${locales[locale].ui.languageLabel}: ${localeNames[locale]}`,
+    );
+
+    document.querySelectorAll<SVGElement>('[data-active-flag]').forEach((flag) => {
+      flag.classList.toggle('hidden', flag.dataset.activeFlag !== locale);
+    });
+
+    languageOptions.forEach((option) => {
+      const selected = option.dataset.localeOption === locale;
+      option.setAttribute('aria-checked', String(selected));
+      option.tabIndex = selected ? 0 : -1;
+      option
+        .querySelector<SVGElement>('[data-selected-mark]')
+        ?.classList.toggle('invisible', !selected);
+    });
+
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     const labelKey = isOpen ? 'navCloseMenu' : 'navOpenMenu';
     toggle.setAttribute('aria-label', locales[locale].ui[labelKey]);
   });
+
+  document.dispatchEvent(new Event('portfolio-locale-change'));
 </script>
