@@ -29,6 +29,15 @@ Open [http://localhost:4321](http://localhost:4321).
 | `npm run build` | Build for production → `./dist/` |
 | `npm run preview` | Preview production build locally |
 
+## Deployment
+
+The Astro adapter is selected for the deployment platform automatically:
+
+- **Vercel:** Uses `@astrojs/vercel` when Vercel sets the `VERCEL` environment variable.
+- **Render:** Uses the standalone Node adapter configured in `render.yaml`.
+
+On Vercel, use the Astro framework preset, `npm run build` as the build command, and `dist` as the output directory.
+
 ## Flow for a new feature
 
 1. Create `features/NNN-feature-name/` with the next number from `constitution/roadmap.md`.
